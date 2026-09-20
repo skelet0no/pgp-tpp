@@ -19,7 +19,7 @@ int main() {
     } else {
         float D = b * b - 4.0f * a * c;
         if (D > 0.0f) {
-            float sqrtD = std::sqrtf(D);
+            float sqrtD = std::sqrt(D);
             float x1 = (-b + sqrtD) / (2.0f * a);
             float x2 = (-b - sqrtD) / (2.0f * a);
             printf("%.6f %.6f", x1, x2);
