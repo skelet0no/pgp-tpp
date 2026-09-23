@@ -1,8 +1,8 @@
-CC = /usr/bin/mpic++
-CFLAGS = --std=c++14 -pedantic -Wall -Werror -Wno-sign-compare -Wno-long-long -lm
+NVCC = /usr/bin/nvcc
+CFLAGS = --std=c++14
 
-SOURCES = lab1.cpp
+SOURCES = lab1.cu
 BIN = lab1
 
 all:
-	$(CC) $(CFLAGS) -o $(BIN) $(SOURCES)
+	$(NVCC) $(CFLAGS) -o $(BIN) $(SOURCES)
