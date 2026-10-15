@@ -1,2 +1,6 @@
 *.tar
 *.asc
+*.data
+*.png
+lab2/hex2bin
+lab2/*.txt
