@@ -2,5 +2,6 @@
 *.asc
 *.data
 *.png
-lab2/hex2bin
+hex2bin
 lab2/*.txt
+lab3/*.txt
