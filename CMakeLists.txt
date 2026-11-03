@@ -5,10 +5,10 @@ set(CUDAToolkit_ROOT /opt/cuda)
 
 project(pgp_tpp LANGUAGES CXX CUDA)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(CMAKE_CUDA_STANDARD 14)
+set(CMAKE_CUDA_STANDARD 17)
 set(CMAKE_CUDA_STANDARD_REQUIRED ON)
 
 add_executable(info info.cu)
@@ -27,3 +27,7 @@ add_executable(lab3_cuda lab3/lab3.cu)
 add_executable(lab3_cpu lab3/lab3.cpp)
 add_executable(lab3_cuda_test lab3/lab3_cuda_test.cu)
 add_executable(lab3_cpu_vs_gpu lab3/lab3_cpu_vs_gpu.cu)
+add_executable(lab4_cuda lab4/lab4.cu)
+add_executable(lab4_cpu lab4/lab4.cpp)
+add_executable(lab4_cuda_test lab4/lab4_cuda_test.cu)
+add_executable(lab4_cpu_vs_gpu lab4/lab4_cpu_vs_gpu.cu)
