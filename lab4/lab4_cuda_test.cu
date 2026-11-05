@@ -293,8 +293,13 @@ bool supportsConfiguration(const cudaDeviceProp& prop, dim3 block, dim3 grid)
            grid.y <= static_cast<unsigned>(prop.maxGridSize[1]);
 }
 
-int main()
+int main(int argc, char** argv)
 {
+    const bool largestOnly = argc == 2 && std::string(argv[1]) == "--largest-only";
+    if (argc > 1 && !largestOnly) {
+        std::cerr << "Usage: lab4_cuda_test [--largest-only]\n";
+        return EXIT_FAILURE;
+    }
     constexpr int repeats = 3;
     cudaDeviceProp prop{};
     CUDA_CHECK(cudaGetDeviceProperties(&prop, 0));
@@ -302,7 +307,9 @@ int main()
               << prop.major << '.' << prop.minor << '\n'
               << "Average solve wall time over " << repeats << " runs, ms.\n";
     bool correct = true;
-    const auto cases = correctnessCases();
+    const auto cases = largestOnly
+        ? std::vector<SystemCase>{makeSystem(257)}
+        : correctnessCases();
     for (const dim3 block : {dim3(16, 16), dim3(32, 4), dim3(32, 8), dim3(32, 16)}) {
         for (const dim3 grid : {dim3(1, 1), dim3(8, 8), dim3(32, 32)}) {
             if (!supportsConfiguration(prop, block, grid)) continue;
