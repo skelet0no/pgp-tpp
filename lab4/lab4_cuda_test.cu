@@ -300,8 +300,7 @@ int main()
     CUDA_CHECK(cudaGetDeviceProperties(&prop, 0));
     std::cout << "GPU: " << prop.name << "\nCompute capability: "
               << prop.major << '.' << prop.minor << '\n'
-              << "Average solve wall time over " << repeats << " runs, ms.\n"
-              << "Includes Thrust, pivot transfers and synchronization; excludes initial workspace allocation and input/output transfers.\n";
+              << "Average solve wall time over " << repeats << " runs, ms.\n";
     bool correct = true;
     const auto cases = correctnessCases();
     for (const dim3 block : {dim3(16, 16), dim3(32, 4), dim3(32, 8), dim3(32, 16)}) {

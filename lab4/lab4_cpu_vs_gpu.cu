@@ -311,9 +311,6 @@ int main(int argc, char** argv)
     std::cout << "GPU: " << prop.name << "\nCompute capability: "
               << prop.major << '.' << prop.minor << '\n'
               << "Times are wall-clock averages over " << repeats << " runs, ms.\n"
-              << "CPU: elimination and back substitution.\n"
-              << "GPU solve: includes Thrust, pivot transfers and synchronization.\n"
-              << "GPU total: additionally includes input/output transfers. Initial workspace allocation excluded; internal Thrust allocation included.\n"
               << "Block: 32x8, grid limit: 32x32.\n";
     bool correct = true;
     for (int n : sizes) {
